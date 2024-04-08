@@ -1,11 +1,24 @@
+import org.jetbrains.kotlin.daemon.common.ensureServerHostnameIsSetUp
+import java.util.regex.Pattern.compile
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-parcelize")
     id("kotlin-kapt")
     id("androidx.navigation.safeargs.kotlin")
+    id("io.gitlab.arturbosch.detekt") version "1.23.3"
 }
 apply(from = "../ktlint.gradle.kts")
+
+//Allure
+//val allureVersion = "2.24.0"
+//val aspectJVersion = "1.9.21"
+//
+//val agent: Configuration by configurations.creating {
+//    isCanBeConsumed = true
+//    isCanBeResolved = true
+//}
 
 android {
     compileSdk = 33
@@ -17,8 +30,6 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        //"androidx.test.runner.AndroidJUnitRunner"
-        //"androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner"
     }
     buildTypes {
         getByName("release") {
@@ -91,22 +102,12 @@ dependencies {
 
     // Test
     testImplementation("junit:junit:4.13.2")
-
-    //Tut?
     testImplementation("androidx.test.ext:junit:1.1.5")
-
     androidTestImplementation("com.android.support.test.espresso:espresso-contrib:3.0.2")
     androidTestImplementation("androidx.navigation:navigation-testing:2.5.3")
     debugImplementation("androidx.fragment:fragment-testing:1.5.5")
     testImplementation("androidx.arch.core:core-testing:2.2.0")
-//    androidTestImplementation("io.mockk:mockk-android:1.12.4")
     testImplementation("io.mockk:mockk-android:1.12.4")
-//    androidTestImplementation("io.mockk:mockk-agent-jvm:1.12.4")
-//    testImplementation("io.mockk:mockk:1.12.4")
-//    testImplementation("io.mockk:mockk-agent-jvm:1.12.4")
-    //testImplementation("androidx.test:core:1.5.0")
-    //testImplementation("androidx.test:core-ktx:1.5.0")
-
 
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -114,8 +115,6 @@ dependencies {
     testImplementation("com.android.support:support-annotations:27.1.1")
     testImplementation("com.android.support.test:runner:1.4.2")
     androidTestImplementation("com.android.support.test:rules:1.0.2")
-//    testImplementation("androidx.test.runner.AndroidJUnitRunner:1.5.0")
-//    testImplementation("androidx.test:runner.AndroidJUnitRunner:1.4.0")
     testImplementation("androidx.test:runner:1.4.0")
     androidTestImplementation("androidx.test:runner:1.4.0")
 
@@ -132,15 +131,52 @@ dependencies {
     //Androidx
     androidTestImplementation("androidx.test:core:1.5.0")
     androidTestImplementation("androidx.test:core-ktx:1.5.0")
-//    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.ext:junit-ktx:1.1.5")
     androidTestImplementation("androidx.test.ext:truth:1.5.0")
     androidTestImplementation("androidx.test:runner:1.5.2")
     androidTestUtil("androidx.test:orchestrator:1.4.2")
 
-    //Libs?
-//    implementation(libs.androidx.core.ktx)
+    //Allure
+//    testImplementation(platform("io.qameta.allure:allure-bom:$allureVersion"))
+//    testImplementation("io.qameta.allure:allure-junit4")
+//
+//    agent("org.aspectj:aspectjweaver:${aspectJVersion}")
+
+
+    //Allure Kotlin
+//    testImplementation("io.qameta.allure:allure-kotlin-model:2.4.0")
+//    testImplementation("io.qameta.allure:allure-kotlin-commons:2.4.0")
+//    testImplementation("io.qameta.allure:allure-kotlin-junit4:2.4.0")
 
 
 }
+
+detekt {
+    ignoreFailures = true
+    debug = true
+    baseline = file("src/test/resources/detektReport.xml")
+}
+
+//tasks.test {
+//    useJUnit()
+//    jvmArgs = listOf(
+//        "-javaagent:${agent.singleFile}"
+//    )
+//}
+
+//allure.results.directory=build/allure-results
+//
+//tasks.test {
+//    useJUnit()
+//    jvmArgs = listOf(
+//        "-javaagent:${agent.singleFile}"
+//    )
+//}
+
+
+//
+//allure {
+//    version.set("2.19.0")
+//    ensureServerHostnameIsSetUp()
+//}

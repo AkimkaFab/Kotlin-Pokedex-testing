@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>ConstructorParameterNaming:Pokemon.kt$Pokemon$var base_exp: String? = null</ID>
+    <ID>ConstructorParameterNaming:Pokemon.kt$Pokemon$var egg_groups: String? = null</ID>
+    <ID>ConstructorParameterNaming:Pokemon.kt$Pokemon$var female_percentage: String? = null</ID>
+    <ID>ConstructorParameterNaming:Pokemon.kt$Pokemon$var male_percentage: String? = null</ID>
+    <ID>ConstructorParameterNaming:Pokemon.kt$Pokemon$var special_attack: Int? = null</ID>
+    <ID>ConstructorParameterNaming:Pokemon.kt$Pokemon$var special_defense: Int? = null</ID>
+    <ID>EmptyClassBlock:PokedexGlideModule.kt$PokedexGlideModule${ }</ID>
+    <ID>MaxLineLength:NetworkModule.kt$.</ID>
+    <ID>MaxLineLength:UnitTests.kt$// .baseUrl("https://gist.githubusercontent.com/mrcsxsiq/b94dbe9ab67147b642baa9109ce16e44/raw/97811a5df2df7304b5bc4fbb9ee018a0339b8a38/")</ID>
+    <ID>MaxLineLength:UnitTests.kt$// if (allPoks.toString().contains("[Pokemon(id=#001, abilities=[Overgrow], attack=30, base_exp=64, category=Seed," +</ID>
+    <ID>NewLineAtEndOfFile:PokedexGlideModule.kt$dev.marcosfarias.pokedex.PokedexGlideModule.kt</ID>
+    <ID>NewLineAtEndOfFile:Pokemon.kt$dev.marcosfarias.pokedex.model.Pokemon.kt</ID>
+    <ID>NewLineAtEndOfFile:UnitTests.kt$.UnitTests.kt</ID>
+    <ID>UnusedParameter:NewsAdapter.kt$NewsAdapter.ViewHolder$item: News</ID>
+    <ID>UnusedPrivateProperty:PokedexFragment.kt$PokedexFragment$val extras = FragmentNavigatorExtras( viewHolder.itemView to viewHolder.viewBinding.imageView.transitionName )</ID>
+    <ID>WildcardImport:DashboardViewModelTest.kt$import io.mockk.*</ID>
+    <ID>WildcardImport:DashboardViewModelTest.kt$import org.junit.*</ID>
+    <ID>WildcardImport:GenerationViewModelTest.kt$import org.junit.*</ID>
+    <ID>WildcardImport:HomeViewModelTest.kt$import org.junit.*</ID>
+    <ID>WildcardImport:PokedexViewModelTest.kt$import io.mockk.*</ID>
+    <ID>WildcardImport:PokedexViewModelTest.kt$import org.junit.*</ID>
+  </CurrentIssues>
+</SmellBaseline>
